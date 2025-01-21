@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.text.Text?>
+
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+<VBox alignment="CENTER" prefHeight="600.0" prefWidth="600.0" spacing="20.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cuc.xh.filetransport.fts.HelloController">
+    <!-- 上方内容 -->
+    <HBox alignment="CENTER"  prefHeight="100.0" prefWidth="520.0">
+        <!-- 左侧选择框 -->
+        <VBox alignment="CENTER_LEFT">
+            <Label text="选择方向"/>
+            <ComboBox fx:id="directionComboBox" prefWidth="150.0" onAction="#handleDirectionChange">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="接收方"/>
+                        <String fx:value="发送方"/>
+                    </FXCollections>
+                </items>
+            </ComboBox>
+        </VBox>
+
+        <!-- 右侧本机IP显示 -->
+        <VBox spacing="10.0" alignment="CENTER_RIGHT">
+            <Label text="本机IP"/>
+            <Text fx:id="localIPText" text="192.168.0.1" />
+        </VBox>
+    </HBox>
+
+    <!-- 中间文件上传框 -->
+    <VBox spacing="20.0" alignment="CENTER" prefHeight="200.0" prefWidth="520.0">
+        <Label text="文件上传"/>
+        <Button fx:id="uploadButton" text="选择文件" onAction="#handleUpload" />
+    </VBox>
+
+    <!-- 底部内容 -->
+    <HBox alignment="CENTER" spacing="20.0" prefHeight="100.0" prefWidth="520.0">
+        <!-- 左侧进度条 -->
+        <VBox spacing="10.0" alignment="CENTER_LEFT">
+            <Label text="上传/下载进度"/>
+            <ProgressBar fx:id="progressBar" prefWidth="250.0" progress="0.0"/>
+        </VBox>
+
+        <!-- 右侧发送/接收按钮 -->
+        <VBox spacing="10.0" alignment="CENTER_RIGHT">
+            <Button fx:id="sendReceiveButton" text="发送" prefWidth="100.0" onAction="#handleSendReceive"/>
+        </VBox>
+    </HBox>
+</VBox>
